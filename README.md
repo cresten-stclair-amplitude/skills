@@ -19,6 +19,12 @@ review set ──▶ 6 hunters (blind, parallel) ──▶ merge + dedup ──�
 - Every smell has a C# and a pseudocode example in `adversarial-review/references/smells-*.md`.
 - Every finding needs file:line + quoted evidence + a harm scenario, and must survive a skeptic agent whose job is to refute it. Design rationale and sources: [prior-art.md](adversarial-review/references/prior-art.md).
 
+## Clean code documents
+
+- [Function and implementation clarity](adversarial-review/references/clean-code-functions.md): descriptive names, honest return contracts, readable conditions, comments, and explicit effects.
+- [Module architecture](adversarial-review/references/clean-code-modules.md): cohesive responsibilities, representation boundaries, validation ownership, and public contracts.
+- [Function flow](adversarial-review/references/clean-code-function-flow.md): one level of iteration per function, meaningful extraction, and understandable composition.
+
 ## Install
 
 Skills (both):
