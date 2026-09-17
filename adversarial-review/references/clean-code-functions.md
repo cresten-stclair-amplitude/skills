@@ -131,6 +131,8 @@ compareInventory({ previousInventory, currentInventory });
 
 A parameter object should express a cohesive operation. It should not become a bag containing every local variable from the caller. Passing an entire application context to avoid a long signature usually hides dependencies instead of reducing them.
 
+When an input must satisfy a domain invariant, prefer accepting a type whose construction validates it. `ItemCount` or `OrderId` communicates both meaning and the guarantee the function may rely on. The [module architecture guidance](clean-code-modules.md#give-validation-an-owner) explains validating constructors and restricted construction in languages such as Go.
+
 Distinguish a query from a command. `calculateReservation` should return a result without changing inventory; `reserveStock` makes mutation part of its promise. Returning the same object that a function mutates can look like a pure transformation. Prefer an explicit in-place command or a new calculated value, and document any intentional combined contract.
 
 Do not infer a defect from mutation alone. A documented update operation can be appropriate. The concern is whether the caller can predict the effects, whether ignored return values hide the actual contract, and whether failure can leave a partially changed object.
