@@ -2,7 +2,7 @@
 
 ## Single Responsibility (SRP)
 
-Each class has **one reason to change** — one actor it serves.
+Each class or module has a coherent responsibility whose rules change together. Name the distinct actors or concerns before splitting it.
 
 ```csharp
 // WRONG — one class handles every domain
@@ -22,11 +22,11 @@ public interface IActionHandler {
 // PhraseActionHandler, ChainActionHandler, etc.
 ```
 
-**Test:** Can you describe what the class does without using "and"?
+**Test:** Identify the concrete change that would force unrelated responsibilities to change together. Needing "and" in a description is a screening cue, not proof.
 
 ## Open/Closed (OCP)
 
-Open for extension, closed for modification. Adding a new type should mean adding a new class, not editing a switch statement.
+Open for extension, closed for modification. Isolate variable policy when adding a variant would require scattered edits or destabilize unrelated behavior. A stable dispatch switch or registry at one boundary can be appropriate; adding a class for every variant is not an automatic requirement.
 
 ```csharp
 // WRONG — every new export format edits this method
@@ -98,6 +98,6 @@ public class ViewManager {
 
 **When to create an interface:**
 
-- Any class another class depends on
-- Especially classes that touch framework, I/O, audio, or network
-- NOT for data-only classes (records, structs, enums)
+- When a consumer needs a substitutable behavior or a boundary around concrete framework/I/O dependencies.
+- When the interface captures what that consumer actually needs, rather than mirroring every concrete member.
+- Do not require interfaces for ordinary domain values, including classes that validate and preserve their own invariants.

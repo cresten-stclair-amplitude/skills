@@ -107,7 +107,7 @@ delete ChainNavigator
 callers use chain.current_phrase / chain.advance() / chain.is_finished
 ```
 
-**Verify before flagging:** Only flag if the class holds no state of its own and every public member is a one-line delegation; an interface seam required by tests or DI is exempt.
+**Verify before flagging:** Only flag if the class holds no state of its own and every public member is a one-line delegation; an interface seam required by tests or DI is exempt. A constructor that validates domain data and preserves an invariant provides meaningful behavior; a small value class is not lazy merely because its remaining members are getters.
 
 ## Data Class
 
@@ -163,7 +163,7 @@ class Song:
     total_steps(): sum over chains of phrase_count * 16
 ```
 
-**Verify before flagging:** Only flag when at least one other class both reads and writes the fields to implement behavior; pure DTOs at serialization or API boundaries are exempt.
+**Verify before flagging:** Only flag when at least one other class both reads and writes the fields to implement behavior; pure DTOs at serialization or API boundaries are exempt. Domain values whose construction establishes validity and whose state preserves that invariant are also intentional representations, not unguarded data classes.
 
 ## Dead Code
 

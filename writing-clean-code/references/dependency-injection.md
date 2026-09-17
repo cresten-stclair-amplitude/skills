@@ -1,6 +1,6 @@
 # Dependency Injection
 
-**Classes must not instantiate their own dependencies.**
+**Receive replaceable service and infrastructure dependencies explicitly.** Constructing a domain value whose constructor establishes an invariant is normal domain work, not hidden infrastructure coupling.
 
 ```csharp
 // WRONG
@@ -20,9 +20,9 @@ public class Song {
 
 **The pattern:** Full constructor accepts all dependencies. Optional parameterless constructor calls it with sensible defaults. Tests use full constructor. Production uses either.
 
-**Apply to:** Any class holding a reference to another class — services, stores, managers, adapters, engines, dependency collections.
+**Apply to:** Replaceable collaborators such as services, stores, adapters, engines, and infrastructure dependencies whose construction would hide coupling or prevent isolated verification.
 
-**Do NOT apply to:** Value types/structs, local variables inside methods, factory methods whose purpose is object creation.
+**Do NOT apply to:** Domain value objects (including validating classes), ordinary collections, or factory methods whose purpose is explicit construction. A dependency hidden inside a method still needs the same ownership analysis; being a local variable is not an exemption.
 
 ## Redundant Coupling
 
@@ -44,6 +44,7 @@ public class ViewManager {
 
 ## Constructor Rules
 
-- Constructors assign dependencies; logic lives in methods.
-- No hidden `new` in a class body — inject, with a convenience default constructor for callers who don't care.
+- Constructors assign dependencies and establish object invariants. Validating and normalizing domain input belongs here; do not publish a partially valid instance.
+- Keep external I/O and long-running workflows out of constructors. Protect invariant-bearing fields and retained mutable inputs after construction.
+- Inject replaceable service dependencies. A convenience default constructor may delegate to the explicit one; constructing validated domain values does not require injection.
 - Singleton is global state in disguise; prefer DI. Only use when exactly one instance is a hard requirement.

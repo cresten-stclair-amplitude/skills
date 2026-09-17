@@ -2,6 +2,8 @@
 
 Research underpinning this skill's design (surveyed 2026-08). The eight recurring patterns, then the systems they come from.
 
+This survey is background, not the review contract. Follow the current [pipeline](../SKILL.md) and catalogs when judging findings. Historical rejection incentives, confidence cutoffs, and volume caps described below do not override evidence-based verdicts or the requirement to retain unresolved candidates.
+
 ## The eight patterns
 
 1. **Finder/skeptic split with a kill mandate.** Every serious system separates finders from a verifier whose job is to *refute*, not confirm. A "double-check" prompt rubber-stamps; a "kill this finding" prompt filters. (Refute-or-Promote, Cursor BugBot's validator, CodeRabbit's judge, Claude Code's verification step, CORE's ranker.)

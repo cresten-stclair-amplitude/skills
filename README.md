@@ -12,12 +12,12 @@ Claude Code skills for writing and reviewing clean code.
 Diff-agnostic: reviews a PR, a branch diff, staged changes, a commit range, a pasted diff, or plain files/directories — every mode reduces to the same review set.
 
 ```
-review set ──▶ 6 hunters (blind, parallel) ──▶ merge + dedup ──▶ finding-skeptic (kill mandate) ──▶ report
+review set ──▶ 9 hunters (blind, parallel within capacity) ──▶ merge + dedup ──▶ finding-skeptic ──▶ report
 ```
 
-- Five hunters cover the [refactoring.guru smell families](https://refactoring.guru/refactoring/smells) (Bloaters, OO Abusers, Change Preventers, Dispensables, Couplers); a sixth, `clean-code-reviewer`, covers SOLID.
+- Five hunters cover the [refactoring.guru smell families](https://refactoring.guru/refactoring/smells) (Bloaters, OO Abusers, Change Preventers, Dispensables, Couplers); `clean-code-reviewer` covers SOLID. Three dedicated hunters cover [function clarity](adversarial-review/agents/function-clarity-hunter.md), [module architecture](adversarial-review/agents/module-architecture-hunter.md), and [function flow](adversarial-review/agents/function-flow-hunter.md).
 - Every smell has a C# and a pseudocode example in `adversarial-review/references/smells-*.md`.
-- Every finding needs file:line + quoted evidence + a harm scenario, and must survive a skeptic agent whose job is to refute it. Design rationale and sources: [prior-art.md](adversarial-review/references/prior-art.md).
+- Every finding needs file:line + quoted evidence + a harm scenario. The skeptic attempts evidence-based disproof while retaining supported maintenance findings; unresolved evidence and incomplete hunter coverage stay visible. Design rationale and sources: [prior-art.md](adversarial-review/references/prior-art.md).
 
 ## Clean code documents
 
@@ -53,7 +53,7 @@ writing-clean-code/
   references/              # solid, dependency-injection, clean-code-rules, design-patterns
 adversarial-review/
   SKILL.md                 # the pipeline: scope → hunt → dedup → skeptic → report
-  agents/                  # 7 roles: 5 smell hunters, clean-code-reviewer (SOLID), finding-skeptic
+  agents/                  # 10 roles: 5 smell hunters, SOLID, 3 clean-code hunters, skeptic
   references/              # smell catalogs (code + pseudocode), SOLID violations,
                            # scope-collection, refactoring-techniques, prior-art
 ```

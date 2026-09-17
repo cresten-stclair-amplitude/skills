@@ -60,7 +60,9 @@ function save(song):
 // validate, serialize, write_to_disk each hold one concern
 ```
 
-**Verify before flagging:** Only flag if the method exceeds ~20 lines or mixes two or more distinct jobs (e.g., validation + serialization + I/O); a short method at a single abstraction level passes even if it looks busy.
+**Limit:** Functions and methods must be no longer than **80 physical lines**, unless the user or applicable repository standard explicitly supplies a different limit. Count from the first declaration/signature line through the closing brace or final body line, inclusive, including internal blank lines and comments; exclude preceding documentation. Report the count and convention. This is an upper bound, not a target.
+
+**Verify before flagging:** A new method over the limit, or an existing over-limit method made longer, is a Long Method finding without needing an existing bug. In diff mode, unchanged, unworsened pre-existing length violations remain out of scope. Below the limit, a method can still qualify when it mixes distinct jobs or abstraction levels (e.g., validation + serialization + I/O), with concrete maintenance harm. Around 20 lines is a screening cue for that analysis, not an automatic violation.
 
 ## Large Class
 
