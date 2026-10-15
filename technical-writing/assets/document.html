@@ -11,56 +11,26 @@
 </style>
 </head>
 <body>
-<a class="skip" href="#main">Skip to RFC</a>
+<a class="skip" href="#main">Skip to document</a>
 <aside class="sidebar" aria-label="Document navigation">
 <strong>{{TITLE}}</strong>
 <nav aria-label="Contents">
-<a href="#summary">Summary</a>
-<a href="#motivation">Motivation</a>
-<a href="#design">Detailed design</a>
-<a class="component-link" href="#system-flow">System flow</a>
-<a class="component-link" href="#architecture">System boundaries</a>
-<a href="#drawbacks">Drawbacks</a>
-<a href="#alternatives">Alternatives</a>
-<a href="#adoption">Adoption strategy</a>
-<a href="#questions">Unresolved questions</a>
+<a href="#overview">{{OVERVIEW_HEADING}}</a>
+{{NAVIGATION_HTML}}
 </nav>
 <button class="print" id="print-button" type="button">Print / Save PDF</button>
 </aside>
 <main id="main">
 <header>
 <h1>{{TITLE}}</h1>
-<!-- Metadata contains dt/dd pairs for known author, date, status, issue and review link. -->
+<!-- Include only metadata required for this document; omit this list if unnecessary. -->
 <dl class="metadata">{{METADATA_HTML}}</dl>
 </header>
-<section id="summary"><h2>Summary</h2>{{SUMMARY_HTML}}</section>
-<section id="motivation"><h2>Motivation</h2>{{MOTIVATION_HTML}}</section>
-<section id="design"><h2>Detailed design</h2>
-<div id="system-flow"><h3>System flow</h3>{{FLOW_HTML}}</div>
-<div id="architecture"><h3>System boundaries</h3>
-{{BOUNDARIES_HTML}}
-<!-- Reuse this figure for additional Mermaid diagrams; source and SVG must agree. -->
-<figure class="diagram-card" data-diagram>
-<div class="diagram-toolbar"><strong>Component architecture</strong>
-<div class="diagram-buttons">
-<button type="button" data-zoom="fit">Fit</button>
-<button type="button" data-zoom="detail">Detail</button>
-<button type="button" data-fullscreen>Full screen</button>
-</div></div>
-<div class="diagram-frame" tabindex="0" aria-label="Component architecture">
-<div class="diagram-canvas">{{ARCHITECTURE_SVG}}</div>
-</div>
-<figcaption><a href="{{ARCHITECTURE_SOURCE_PATH}}">Mermaid source</a></figcaption>
-</figure>
-</div>
-<!-- Each component is an article.component with a stable id and an h3. -->
-{{COMPONENTS_HTML}}
-</section>
-<section id="drawbacks"><h2>Drawbacks</h2>{{DRAWBACKS_HTML}}</section>
-<section id="alternatives"><h2>Alternatives</h2>{{ALTERNATIVES_HTML}}</section>
-<section id="adoption"><h2>Adoption strategy</h2>{{ADOPTION_HTML}}</section>
-<section id="questions"><h2>Unresolved questions</h2>{{QUESTIONS_HTML}}</section>
-<p class="template-credit">Structure adapted from the <a href="https://github.com/reactjs/rfcs/blob/main/0000-template.md">React RFC template</a>.</p>
+<!-- Put the requested answer, result, process, or next action here, before background. -->
+<section id="overview"><h2>{{OVERVIEW_HEADING}}</h2>{{OVERVIEW_HTML}}</section>
+<!-- Supply sections appropriate to the document type, with matching navigation anchors. -->
+{{SECTIONS_HTML}}
+{{FOOTER_HTML}}
 </main>
 <script>
 document.getElementById('print-button').addEventListener('click', () => window.print());
