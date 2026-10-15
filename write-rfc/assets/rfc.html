@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<style>
+:root{--ink:#202124;--muted:#555;--line:#d6d9dc;--link:#174ea6;--mono:ui-monospace,SFMono-Regular,Consolas,monospace}*{box-sizing:border-box}html{scroll-padding-top:20px}body{margin:0;background:#fff;color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--link);text-underline-offset:2px}a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:2px solid #174ea6;outline-offset:3px}.skip{position:absolute;top:-80px;left:15px;background:#fff;padding:8px;z-index:10}.skip:focus{top:10px}.sidebar{position:fixed;inset:0 auto 0 0;width:220px;overflow:auto;padding:24px 16px;border-right:1px solid var(--line);background:#f8f9fa}.sidebar strong{display:block;font-size:15px;margin-bottom:12px}.sidebar nav{display:grid;gap:1px}.sidebar nav a{padding:4px 6px;font-size:12px;color:#444;text-decoration:none}.sidebar nav a:hover,.sidebar nav a[aria-current]{background:#e8edf3;color:#174ea6}.sidebar nav .component-link{padding-left:17px}.print{font-size:12px;margin-top:18px;padding:4px 8px;border:1px solid #b8bdc3;background:white;border-radius:3px;cursor:pointer}main{margin-left:220px;padding:26px 36px 50px;max-width:1430px}h1{font-size:28px;line-height:1.2;margin:0 0 14px;font-weight:650}h2{font-size:21px;line-height:1.3;margin:0 0 10px}h3{font-size:18px;line-height:1.35;margin:0 0 9px}h4{font-size:15px;margin:18px 0 6px}p{margin:8px 0 12px}header{padding-bottom:16px;border-bottom:1px solid var(--line)}.metadata{display:grid;grid-template-columns:70px 1fr;gap:3px 12px;margin:0;font-size:13px}.metadata dt{font-weight:600}.metadata dd{margin:0}section{padding:22px 0 8px;border-bottom:1px solid var(--line)}.component{padding:23px 0 5px;scroll-margin-top:20px}.component+.component{border-top:1px solid #e5e7e9;margin-top:12px}code{font:12px/1.5 var(--mono);background:#f1f3f4;padding:1px 3px;overflow-wrap:anywhere}pre{font:12px/1.5 var(--mono);padding:13px 16px;background:#f6f8fa;border:1px solid #e0e3e6;white-space:pre-wrap;overflow-wrap:anywhere;margin:12px 0}pre code{font:inherit;background:none;padding:0}.source,figcaption,.template-credit{font-size:12px;color:var(--muted)}.source a,.template-credit a{color:var(--muted)}ul,ol{padding-left:22px;margin:9px 0 14px}li{margin:5px 0}.table-wrap{overflow:auto;margin:12px 0}table{border-collapse:collapse;width:100%;font-size:13px}th,td{text-align:left;vertical-align:top;padding:7px 9px;border:1px solid var(--line)}th{background:#f5f6f7;font-weight:600}.diagram-card{margin:15px 0 9px;border:1px solid var(--line)}.diagram-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 11px;border-bottom:1px solid var(--line);background:#f8f9fa;font-size:12px}.diagram-buttons{display:flex;gap:5px}.diagram-buttons button{font:12px Arial,sans-serif;padding:3px 7px;border:1px solid #b8bdc3;border-radius:2px;background:#fff;cursor:pointer}.diagram-frame{padding:14px;overflow:auto}.diagram-canvas{width:100%;margin:auto;font-family:Arial,sans-serif;--mermaid-font-family:Arial,sans-serif}.diagram-canvas .label,.diagram-canvas .nodeLabel,.diagram-canvas .edgeLabel{font-family:Arial,sans-serif}.diagram-canvas p{margin:0;max-width:none}.diagram-canvas svg{display:block;width:100%;height:auto;max-width:none!important}.diagram-card:fullscreen{background:#fff;display:flex;flex-direction:column;overflow:auto;padding:8px}.diagram-card:fullscreen .diagram-frame{flex:1}.diagram-card figcaption{padding:6px 11px 9px;border-top:1px solid #eee}.diagram-source{margin:8px 0 18px}.diagram-source summary{font-size:12px;cursor:pointer;color:var(--muted)}.diagram-source pre{max-height:360px;overflow:auto}.template-credit{margin-top:20px}
+@media(max-width:1050px){.sidebar{width:185px;padding:20px 10px}main{margin-left:185px;padding:24px}.sidebar nav a{font-size:11px}}@media(max-width:720px){.sidebar{position:static;width:auto;border-right:0;border-bottom:1px solid var(--line);padding:12px 16px}.sidebar strong,.sidebar .print,.sidebar .component-link{display:none}.sidebar nav{display:flex;overflow:auto;gap:8px}.sidebar nav a{white-space:nowrap;font-size:12px}main{margin:0;padding:20px 16px 35px}h1{font-size:25px}.diagram-toolbar{align-items:flex-start;flex-direction:column}.diagram-frame{padding:8px}pre{padding:10px;font-size:11px}}
+@media print{body{font-size:10pt;line-height:1.4}.sidebar,.skip,.diagram-toolbar,.diagram-source{display:none}main{margin:0;padding:0;max-width:none}h1{font-size:23pt}h2{font-size:16pt}h3{font-size:13pt}h2,h3,h4{break-after:avoid}.diagram-frame{overflow:visible;padding:5px}.diagram-canvas{width:100%!important}.diagram-card{break-inside:avoid}pre{break-inside:avoid}a{color:inherit}section{padding-top:15px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to RFC</a>
+<aside class="sidebar" aria-label="Document navigation">
+<strong>{{TITLE}}</strong>
+<nav aria-label="Contents">
+<a href="#summary">Summary</a>
+<a href="#motivation">Motivation</a>
+<a href="#design">Detailed design</a>
+<a class="component-link" href="#system-flow">System flow</a>
+<a class="component-link" href="#architecture">System boundaries</a>
+<a href="#drawbacks">Drawbacks</a>
+<a href="#alternatives">Alternatives</a>
+<a href="#adoption">Adoption strategy</a>
+<a href="#questions">Unresolved questions</a>
+</nav>
+<button class="print" id="print-button" type="button">Print / Save PDF</button>
+</aside>
+<main id="main">
+<header>
+<h1>{{TITLE}}</h1>
+<!-- Metadata contains dt/dd pairs for known author, date, status, issue and review link. -->
+<dl class="metadata">{{METADATA_HTML}}</dl>
+</header>
+<section id="summary"><h2>Summary</h2>{{SUMMARY_HTML}}</section>
+<section id="motivation"><h2>Motivation</h2>{{MOTIVATION_HTML}}</section>
+<section id="design"><h2>Detailed design</h2>
+<div id="system-flow"><h3>System flow</h3>{{FLOW_HTML}}</div>
+<div id="architecture"><h3>System boundaries</h3>
+{{BOUNDARIES_HTML}}
+<!-- Reuse this figure for additional Mermaid diagrams; source and SVG must agree. -->
+<figure class="diagram-card" data-diagram>
+<div class="diagram-toolbar"><strong>Component architecture</strong>
+<div class="diagram-buttons">
+<button type="button" data-zoom="fit">Fit</button>
+<button type="button" data-zoom="detail">Detail</button>
+<button type="button" data-fullscreen>Full screen</button>
+</div></div>
+<div class="diagram-frame" tabindex="0" aria-label="Component architecture">
+<div class="diagram-canvas">{{ARCHITECTURE_SVG}}</div>
+</div>
+<figcaption><a href="{{ARCHITECTURE_SOURCE_PATH}}">Mermaid source</a></figcaption>
+</figure>
+</div>
+<!-- Each component is an article.component with a stable id and an h3. -->
+{{COMPONENTS_HTML}}
+</section>
+<section id="drawbacks"><h2>Drawbacks</h2>{{DRAWBACKS_HTML}}</section>
+<section id="alternatives"><h2>Alternatives</h2>{{ALTERNATIVES_HTML}}</section>
+<section id="adoption"><h2>Adoption strategy</h2>{{ADOPTION_HTML}}</section>
+<section id="questions"><h2>Unresolved questions</h2>{{QUESTIONS_HTML}}</section>
+<p class="template-credit">Structure adapted from the <a href="https://github.com/reactjs/rfcs/blob/main/0000-template.md">React RFC template</a>.</p>
+</main>
+<script>
+document.getElementById('print-button').addEventListener('click', () => window.print());
+document.querySelectorAll('[data-diagram]').forEach(diagram => {
+  const canvas = diagram.querySelector('.diagram-canvas');
+  diagram.querySelectorAll('[data-zoom]').forEach(button => button.addEventListener('click', () => {
+    const svg = canvas.querySelector('svg');
+    if (!svg) return;
+    canvas.style.width = button.dataset.zoom === 'fit' ? '100%' : Math.max(1400, svg.viewBox.baseVal.width) + 'px';
+  }));
+  const fullscreen = diagram.querySelector('[data-fullscreen]');
+  fullscreen?.addEventListener('click', async () => {
+    const enlarge = () => diagram.querySelector('[data-zoom="detail"]')?.click();
+    if (!diagram.requestFullscreen) return enlarge();
+    try {
+      if (document.fullscreenElement) await document.exitFullscreen();
+      else await diagram.requestFullscreen();
+    } catch { enlarge(); }
+  });
+});
+if ('IntersectionObserver' in window) {
+  const links = [...document.querySelectorAll('nav a')];
+  const observer = new IntersectionObserver(entries => {
+    const visible = entries.find(entry => entry.isIntersecting);
+    if (!visible) return;
+    links.forEach(link => {
+      if (link.hash === '#' + visible.target.id) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+  }, { rootMargin: '-5% 0px -65% 0px' });
+  document.querySelectorAll('main section, .component').forEach(section => observer.observe(section));
+}
+</script>
+</body>
+</html>

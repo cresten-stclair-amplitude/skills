@@ -1,0 +1,4 @@
+interface:
+  display_name: "Write RFC"
+  short_description: "Write concise technical RFCs for engineering review"
+  default_prompt: "Use $write-rfc to write a technical RFC from this issue and its source material."
