@@ -7,7 +7,7 @@ Skills for writing and reviewing clean code with Claude Code, and domain-driven 
 | [writing-clean-code](writing-clean-code/SKILL.md) | Writing new code — SOLID, dependency injection, naming, pattern selection |
 | [adversarial-review](adversarial-review/SKILL.md) | Reviewing existing code — multi-agent smell hunt with adversarial verification |
 | [domain-driven-design](domain-driven-design/SKILL.md) | Codex domain modeling — sequential subagents from discovery and strategic design through tactical modeling, adversarial skepticism, and parent reconciliation |
-| [pr-watch](pr-watch/SKILL.md) | Quiet background PR monitoring that wakes the same Codex session after GitHub approval and checks |
+| [watch-pr](watch-pr/SKILL.md) | Quiet background PR monitoring that wakes the same Codex session after GitHub approval and checks |
 
 `domain-driven-design` supports greenfield and existing systems. Each phase builds on accepted upstream conclusions and can challenge them with new evidence. It uses ordinary Codex runtime subagents, requires no custom agent installation, and treats “no DDD abstraction needed” as a valid outcome.
 

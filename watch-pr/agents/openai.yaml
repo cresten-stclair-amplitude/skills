@@ -1,0 +1,7 @@
+interface:
+  display_name: "WatchPR"
+  short_description: "Quiet PR waiting, CI fixes, and review announcements"
+  default_prompt: "Use $watch-pr to watch this PR quietly and wake this session when GitHub approval and checks are ready."
+
+policy:
+  allow_implicit_invocation: false

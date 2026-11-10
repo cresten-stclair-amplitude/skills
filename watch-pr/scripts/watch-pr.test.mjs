@@ -9,7 +9,7 @@ import { promisify } from 'node:util';
 import test from 'node:test';
 import { evaluateSnapshot, parsePrUrl, readSnapshot } from './github.mjs';
 import { watch } from './watcher.mjs';
-import { wakeSession } from './pr-watch.mjs';
+import { wakeSession } from './watch-pr.mjs';
 
 const exec = promisify(execFile);
 const head = 'a'.repeat(40);
@@ -163,7 +163,7 @@ test('detached CLI deduplicates watches, stays silent, wakes once, and supports 
   await chmod(join(bin, 'codex'), 0o755);
   const alias = join(root, 'skill');
   await symlink(fileURLToPath(new URL('.', import.meta.url)), alias);
-  const script = join(alias, 'pr-watch.mjs');
+  const script = join(alias, 'watch-pr.mjs');
   const wakeFile = join(root, 'wake.jsonl');
   const env = { ...process.env, CODEX_HOME: home, CODEX_THREAD_ID: thread,
     PATH: `${bin}:${process.env.PATH}`, WAKE_FILE: wakeFile };

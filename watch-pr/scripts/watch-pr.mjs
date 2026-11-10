@@ -181,7 +181,7 @@ async function main() {
   } });
   const [command, input] = positionals;
   if (values.help || !command) {
-    console.log('pr-watch.mjs start|check|status|stop [PR-URL] [--thread UUID] [--interval-seconds 60] [--timeout-hours 168]');
+    console.log('watch-pr.mjs start|check|status|stop [PR-URL] [--thread UUID] [--interval-seconds 60] [--timeout-hours 168]');
     return;
   }
   if (positionals.length > 2) throw new Error('Too many positional arguments.');
